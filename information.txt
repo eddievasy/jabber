@@ -1,0 +1,48 @@
+---------- SERVER SIDE ----------
+
+MAIN CLASS TO COMPILE & RUN:
+-> JabberServer.java 
+
+
+
+---------- CLIENT SIDE ----------
+
+MAIN CLASS TO COMPILE & RUN: 
+-> Main.java
+
+
+
+-------- ADDITIONAL INFO --------
+
+- If the server receives a 'register' type request for a username that
+already exists in the database, the server simply signs them in;
+
+- The server prints helper lines in the terminal anytime a new client
+has connected to it, mentioning the Socket details and the thread it is
+running on. A server-client connection thread stops running when the client
+has signed out;
+
+- Anytime the client side sends a like, follow or post type request to the server,
+it also sends an additional request to retrieve data used to 'refresh' the
+'Timeline' or 'Who to follow' tables;
+
+- In order reflect the real-time GUI updates taking place when multiple
+clients are connected to and interacting with the server simultaneously,
+new data requests (for the 'Timeline' or 'Who to follow' tables) are sent
+to the server EVERY SECOND (by each client thread);
+
+- The 'REFRESH' button simply refreshes the 'Timeline' and 'Who to follow' tables.
+There is no need for this to be clicked since this has been automated and it 
+takes place EVERY SECOND.
+
+- For the JabberMessage to be recognised on both ends by the ObjectInputStream
+and ObjectOutputStream readers, it is imperative that the JabberMessage.java class
+has the same package declaration in both projects. In our case, it is:
+-> package com.bham.fsd.assignments;
+The Class Not Found exception will be thrown otherwise.
+
+
+
+--------- DEPENDENCIES ---------
+- postgresql-42.2.20
+- javafx-sdk-16
